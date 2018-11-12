@@ -25,7 +25,7 @@ class NewsList extends Component {
 
   request = (start, end) => {
     if (this.state.teams.length < 1) {
-      axios.get(`${URL}/teams`)
+      axios.get(`${URL}/teams`, {params: {headers:{ Connection: 'keep-alive' }}})
         .then(response => {
           this.setState({
             teams: response.data
@@ -35,7 +35,9 @@ class NewsList extends Component {
     axios.get(`${URL}/articles?_start=${this.state.start}&_end=${this.state.end}`)
       .then(response => {
         this.setState({
-          items: [...this.state.items, ...response.data]
+          items: [...this.state.items, ...response.data],
+          start,
+          end
         })
       })
   }
