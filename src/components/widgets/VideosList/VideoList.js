@@ -29,9 +29,9 @@ class VideosList extends Component {
           this.setState({
             teams: response.data
           })
-        })
+        }) 
     }
-
+    
     axios.get(`${URL}/videos?_start=${start}&_end=${end}`)
       .then(response => {
         this.setState({
@@ -40,7 +40,6 @@ class VideosList extends Component {
           end: end
         })
       });
-    
   }
 
   renderTitle = () => {
@@ -81,7 +80,7 @@ class VideosList extends Component {
   }
 
   render() {
-    
+    console.log(this.state)
     return(
       <div className={styles.videoList_wrapper}>
         {this.renderTitle()}
