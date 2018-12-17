@@ -1,13 +1,13 @@
 {
-  "main.css": "/nba-app/static/css/main.5b23356c.chunk.css",
-  "main.js": "/nba-app/static/js/main.db920dd9.chunk.js",
-  "main.js.map": "/nba-app/static/js/main.db920dd9.chunk.js.map",
-  "static/js/1.8d01b945.chunk.js": "/nba-app/static/js/1.8d01b945.chunk.js",
-  "static/js/1.8d01b945.chunk.js.map": "/nba-app/static/js/1.8d01b945.chunk.js.map",
+  "main.css": "/nba-app/static/css/main.e1583ac5.chunk.css",
+  "main.js": "/nba-app/static/js/main.75c04955.chunk.js",
+  "main.js.map": "/nba-app/static/js/main.75c04955.chunk.js.map",
+  "static/js/1.c292708b.chunk.js": "/nba-app/static/js/1.c292708b.chunk.js",
+  "static/js/1.c292708b.chunk.js.map": "/nba-app/static/js/1.c292708b.chunk.js.map",
   "runtime~main.js": "/nba-app/static/js/runtime~main.949296cf.js",
   "runtime~main.js.map": "/nba-app/static/js/runtime~main.949296cf.js.map",
-  "static/css/main.5b23356c.chunk.css.map": "/nba-app/static/css/main.5b23356c.chunk.css.map",
+  "static/css/main.e1583ac5.chunk.css.map": "/nba-app/static/css/main.e1583ac5.chunk.css.map",
   "index.html": "/nba-app/index.html",
-  "precache-manifest.d2fea029d0965b7bcae53c3e7c91baea.js": "/nba-app/precache-manifest.d2fea029d0965b7bcae53c3e7c91baea.js",
+  "precache-manifest.a71228b0c8a7bce621ea8c6a842cc7a8.js": "/nba-app/precache-manifest.a71228b0c8a7bce621ea8c6a842cc7a8.js",
   "service-worker.js": "/nba-app/service-worker.js"
 }
