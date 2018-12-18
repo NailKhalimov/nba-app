@@ -6,7 +6,7 @@ import Routes from './routes'
 
 const App = (props) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes {...props}/>
     </BrowserRouter>
   )
@@ -15,6 +15,3 @@ const App = (props) => {
 firebase.auth().onAuthStateChanged((user) => {
   ReactDOM.render(<App user={user}/>, document.getElementById('root'));
 })
-
-
-

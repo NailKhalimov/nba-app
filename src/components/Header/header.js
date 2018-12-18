@@ -8,7 +8,7 @@ const Header = (props) => {
 
   const logo = () =>  (
       <Link to="/" className={style.logo}>
-        <img alt="nba logo" src="/images/nba_logo.png"></img>
+        {/* <img alt="nba logo" src="/images/nba_logo.png"></img> */}
       </Link>
   )
 
