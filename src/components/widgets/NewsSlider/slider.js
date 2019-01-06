@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SliderTemplates from './slider_templates';
-import {firebaseArticles, firebaseLooper} from '../../../firebase';
+import {firebase, firebaseArticles, firebaseLooper} from '../../../firebase';
+import { resolve } from 'path';
+import { request } from 'http';
 
 class NewsSlider extends Component {
 
@@ -12,17 +14,31 @@ class NewsSlider extends Component {
     firebaseArticles.limitToFirst(3).once('value')
       .then((snapshot) => {
         const news = firebaseLooper(snapshot)
-        this.setState({
-          news
-        })
-      })
+        const asyncFunction = (item, i, cb) => {
+          firebase.storage().ref('images')
+          .child(item.image).getDownloadURL()
+          .then(url => {
+            news[i].image = url;
+            console.log(url)
+            cb();
+          })
+        }
 
-    // axios.get(`${URL}/articles?_start=${this.props.start}&_end=${this.props.amount}`)
-    //   .then(response => {
-    //     this.setState({
-    //       news: response.data
-    //     })
-    //   })
+        let requests = news.map((item, i) => {
+          return new Promise((resolve) => {
+            asyncFunction(item, i, resolve)
+          }) 
+        })
+
+        Promise.all(requests)
+        .then(() => {
+          this.setState({
+            news
+          })
+        })
+        .catch((err) => console.log(err))
+        console.log(news)
+      })
   }
 
   render() {

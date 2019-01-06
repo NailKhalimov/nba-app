@@ -31,13 +31,8 @@ class NewsList extends Component {
             teams
           })
         })
-      // axios.get(`${URL}/teams`, {params: {headers:{ Connection: 'keep-alive' }}})
-      //   .then(response => {
-      //     this.setState({
-      //       teams: response.data
-      //     })
-      //   })
     }
+
     firebaseArticles.orderByChild('id').startAt(start).endAt(end).once('value')
       .then((snapshot) => {
         const articles = firebaseLooper(snapshot);
@@ -50,14 +45,6 @@ class NewsList extends Component {
       .catch(e => {
         console.log(e)
       })
-    // axios.get(`${URL}/articles?_start=${this.state.start}&_end=${this.state.end}`)
-    //   .then(response => {
-    //     this.setState({
-    //       items: [...this.state.items, ...response.data],
-    //       start,
-    //       end
-    //     })
-    //   })
   }
 
   loadMore = () => {

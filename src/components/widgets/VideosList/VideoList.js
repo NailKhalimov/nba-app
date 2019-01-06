@@ -33,6 +33,7 @@ class VideosList extends Component {
     
     firebaseVideos.orderByChild('id').startAt(start).endAt(end).once('value')
       .then((snapshot) => {
+        console.log(snapshot)
         const videos = firebaseLooper(snapshot);
         this.setState({
           videos: [...this.state.videos, ...videos],
