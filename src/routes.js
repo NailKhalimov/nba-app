@@ -11,17 +11,20 @@ import VideosMain from './components/Articles/Videos/Main/index';
 import SignIn from './components/SignIn/signin'
 import Dashboard from './components/Dashboard/dashboard'
 
+import PrivateRoute from './components/AuthRoutes/privateRoutes';
+import PublicRoute from './components/AuthRoutes/publicRoutes';
+
 const Routes = (props) => {
   return (
     <Layout user={props.user}>
       <Switch>
-        <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
-        <Route path={`${process.env.PUBLIC_URL}/news`} exact component={NewsMain}/>
-        <Route path={`${process.env.PUBLIC_URL}/articles/:id`} exact component={NewsArticle}/>
-        <Route path={`${process.env.PUBLIC_URL}/videos/:id`} exact component={VideoArticle}/>
-        <Route path={`${process.env.PUBLIC_URL}/videos`} exact component={VideosMain}/>
-        <Route path={`${process.env.PUBLIC_URL}/sign-in`} exact component={SignIn}/>
-        <Route path={`${process.env.PUBLIC_URL}/dashboard`} exact component={Dashboard}/>
+        <PublicRoute {...props} restricted={false} path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
+        <PublicRoute {...props} restricted={false} path={`${process.env.PUBLIC_URL}/news`} exact component={NewsMain}/>
+        <PublicRoute {...props} restricted={false} path={`${process.env.PUBLIC_URL}/articles/:id`} exact component={NewsArticle}/>
+        <PublicRoute {...props} restricted={false} path={`${process.env.PUBLIC_URL}/videos/:id`} exact component={VideoArticle}/>
+        <PublicRoute {...props} restricted={false} path={`${process.env.PUBLIC_URL}/videos`} exact component={VideosMain}/>
+        <PublicRoute {...props} restricted={true} path={`${process.env.PUBLIC_URL}/sign-in`} exact component={SignIn}/>
+        <PrivateRoute {...props} path={`${process.env.PUBLIC_URL}/dashboard`} exact component={Dashboard}/>
       </Switch> 
     </Layout>
   )
